@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/aniketraut16/Fashelp#readme",
   "dependencies": {
+    "@clerk/express": "^1.7.34",
     "@prisma/client": "^6.16.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
