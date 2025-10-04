@@ -52,6 +52,7 @@ model product_embeddings {
   product_url String
   embedding   Unsupported("vector")?
   created_at  DateTime?              @default(now()) @db.Timestamp(6)
+  content     String?
   brands      brands                 @relation(fields: [brand_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
@@ -75,6 +76,14 @@ model users {
   chat_messages    chat_messages[]
   chat_sessions    chat_sessions[]
   user_preferences user_preferences[]
+}
+
+model webpage_embeddings {
+  id         String                 @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  page_url   String
+  content    String?
+  embedding  Unsupported("vector")?
+  created_at DateTime?              @default(now()) @db.Timestamp(6)
 }
 
 enum brand_tier {
