@@ -110,7 +110,7 @@ export const savePageData = async (url) => {
       // Convert to vector string
       const vectorString = `[${embedding.join(",")}]`;
 
-      // Store each chunk in database
+      // in Store each database chunk
       await prisma.$executeRaw`
                 INSERT INTO webpage_embeddings (page_url, content, embedding)
                 VALUES (${url}, ${chunk}, ${vectorString}::vector)
